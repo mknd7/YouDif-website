@@ -1,0 +1,45 @@
+$font-family: 'Roboto', sans-serif;
+
+$font-size--default: 22px;
+$font-size--md: 18px;
+$font-size--sm: 16px;
+
+$line-height--text: 1.36;
+$letter-spacing--link: 1px;
+
+$font-weight--light: 100;
+$font-weight--regular: 300;
+$font-weight--bold: 400;
+
+$color-base: #ffffff;
+$color-border: #eeeeee;
+$color-dottedborder: #e8edf2;
+
+$color-text: rgba(13,37,62,0.4);
+$color-text--dark: #0d253e;
+
+$color--primary: #1e88f5;
+$color--secondary: #ffcc01;
+$color--circle: #f4f8fc;
+
+$max-width--regular: 1240px;
+$max-width--large: 1340px;
+
+// map to store all max-width(s)
+$widths: (
+  regular: $max-width--regular,
+  large: $max-width--large
+);
+
+$xl: 1200px;
+$lg: 992px;
+$md: 768px;
+$sm: 576px;
+
+$circle-size: 150px;
+$iconsize: 36px;
+
+$logo-width-default: 132px;
+$logo-height-default: $logo-width-default / 6.6;
+
+$image-path: '../img/';

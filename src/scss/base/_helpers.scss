@@ -1,0 +1,157 @@
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.inlineblock-fix::after {
+  content: '';
+  display: inline-block;
+  width: 100%;
+}
+
+.container {
+  @include padding(get-rem(140px), 20px, get-rem(140px), 20px);
+  @include center-block;
+  width: 100%;
+}
+
+.emphasis {
+  font-weight: $font-weight--regular;
+}
+
+@each $type, $maxwidth in $widths {
+  .container--#{$type} {
+    max-width: $maxwidth;
+  }
+}
+
+.logo {
+  @include inline-block;
+  @include size($logo-width-default, $logo-height-default);
+  cursor: pointer;
+}
+
+.circle {
+  @include circle;
+  @include size($circle-size);
+  @include transition(0.4s);
+  position: relative;
+  display: block;
+  background-size: $iconsize;
+  &:hover {
+    background-color: $color--primary;
+  }
+}
+
+.new-badge {
+  @include position(absolute, $top: 0, $right: 0);
+  @include circle($color--secondary);
+  @include size(40px);
+  @include transition(0.4s);
+  &:hover {
+    @include box-shadow(0 0 20px 0 $color--secondary);
+  }
+  &::before {
+    @include position(absolute,0,0,0,0);
+    @include size(50%, 3px);
+    margin: auto;
+    content: '';
+    background-color: $color-base;
+  }
+  &::after {
+    @include position(absolute,0,0,0,0);
+    @include size(3px, 50%);
+    margin: auto;
+    content: '';
+    background-color: $color-base;
+  }
+}
+
+.dottedborder {
+  @include size(250px, 4px);
+  @include dottedborder(top);
+  @include position(absolute, $top: 50%, $left: 100%);
+  pointer-events: none;
+  &--largespan {
+    @include dottedborder(top);
+    @include margin($top: 41px, $bottom: 41px);
+    width: 100%;
+    display: block;
+  }
+}
+
+.dottedborder-curved {
+  @include size(170px, $circle-size - 30px);
+  @include dottedborder(top);
+  @include dottedborder(bottom);
+  pointer-events: none;
+  &--left {
+    @include position(absolute, $bottom: 50%, $right: 100%);
+    @include dottedborder(left);
+    border-top-left-radius: $circle-size - 30px;
+    border-bottom-left-radius: $circle-size - 30px;
+  }
+  &--right {
+    @include position(absolute, $top: 50%, $left: 100%);
+    @include dottedborder(right);
+    border-top-right-radius: $circle-size - 30px;
+    border-bottom-right-radius: $circle-size - 30px;
+  }
+}
+
+.tick {
+  @include size(18px, 12px);
+  @include inline-block(top);
+  @include transform(rotate(-45deg));
+  @include margin($right: 30px, $bottom: 5px);
+  border-left: 2px solid;
+  border-bottom: 2px solid;
+  &--blue {
+    border-color: $color--primary;
+  }
+  &--yellow {
+    border-color: $color--secondary;
+  }
+}
+
+@media screen and (max-width: $xl) {
+}
+
+@media screen and (max-width: $lg) {
+  .circle {
+    @include size($circle-size / 1.5);
+    background-size: $iconsize - 10px;
+  }
+
+  .dottedborder {
+    &--largespan {
+      @include margin($top: 16px, $bottom: 16px);
+    }
+  }
+
+  .dottedborder-curved {
+    @include size(50px, $circle-size / 1.5 - 30px);
+  }
+
+  .new-badge {
+    @include size(30px);
+  }
+}
+
+@media screen and (max-width: $md) {
+  .circle {
+    @include center-block;
+  }
+
+  .dottedborder, .dottedborder-curved {
+    display: none;
+  }
+
+  .dottedborder--largespan {
+    border: 1px solid $color-border;
+    @include margin($top: 30px, $bottom: 50px);
+  }
+}
+
+@media screen and (max-width: $sm) {}

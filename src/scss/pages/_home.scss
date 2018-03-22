@@ -1,0 +1,193 @@
+.log-in {
+  @include padding($left: 53px, $right: 53px);
+}
+
+.hero {
+  //@include position(absolute, $top: 0);
+  @include background-image($size: cover);
+  width: 100%;
+  background-image: 
+    linear-gradient(to bottom, #071a2e, rgba(24, 79, 136, 0.3)),
+    url($image-path + 'hero@1x.png');
+  height: 630px;
+}
+
+.hero-content {
+  @include padding($top: get-rem(190px), $bottom: get-rem(214px));
+  max-width: 730px;
+  text-align: center;
+}
+
+.broadcast-ad {
+  @include padding($left: 73px, $right: 73px);
+}
+
+.interface-intro {
+  @include center-block;
+  text-align: center;
+  letter-spacing: 0;
+  max-width: get-rem(630px);
+  margin-bottom: 40px;
+}
+
+.features {
+  @include padding($left: 170px, $right: 170px);
+  ul {
+    text-align: justify;
+  }
+  .description {
+    @include margin($left: -50px, $right: -50px);
+    @include padding($top: 30px, $bottom: 30px);
+  }
+}
+
+.features ul:first-of-type li {
+  vertical-align: bottom;
+}
+
+.features ul:nth-of-type(1) li {
+  &:nth-of-type(1) .circle {
+    @include background-image('building.png');
+  }
+  &:nth-of-type(2) .circle {
+    @include background-image('document.png');
+  }
+  &:nth-of-type(3) .circle {
+    @include background-image('check.png');
+  }
+}
+
+.features ul:nth-of-type(2) li {
+  &:nth-of-type(1) .circle {
+    @include background-image('directions.png');
+  }
+  &:nth-of-type(2) .circle {
+    @include background-image('pie-chart.png');
+  }
+  &:nth-of-type(3) .circle {
+    @include background-image('user.png');
+  }
+}
+
+.efficiency-wrapper {
+  @include background-image($size: cover);
+  background-image: 
+    linear-gradient(to top, rgba(16, 55, 95, 0.55), rgba(16, 55, 95, 0.3)),
+    url($image-path + 'bg@1x.png');
+  height: 645px;
+  position: relative;
+}
+
+.efficiency-content {
+  max-width: 470px;
+  h2 {
+    color: $color-base;
+    font-weight: $font-weight--light;
+  }
+}
+
+.characteristics {
+  @include position(absolute, $top: 0, $right: 20px);
+}
+
+.pricing-page {
+  border-bottom: 1px solid $color-border;
+}
+
+.pricing-intro {
+  text-align: center;
+  margin-bottom: 95px;
+}
+
+.pricing-options {
+  @include padding($left: 60px, $right: 60px);
+  font-size: 0;
+  text-align: justify;
+  margin-bottom: get-rem(140px);
+}
+
+.advantages {
+  @include padding($left: 170px, $right: 170px);
+  ul {
+    text-align: justify;
+  }
+  .description {
+    @include margin($left: -50px, $right: -50px);
+    padding-top: 30px;
+  }
+  ul li {
+    &:nth-of-type(1) .circle {
+      @include background-image('saving.png');
+    }
+    &:nth-of-type(2) .circle {
+      @include background-image('receipt.png');
+    }
+    &:nth-of-type(3) .circle {
+      @include background-image('handout.png');
+    }
+  }
+}
+
+@media screen and (max-width: $xl) {
+  .advantages {
+    @include padding($left: 70px, $right: 70px);
+  }
+}
+
+@media screen and (max-width: $lg) {
+  .hero {
+    height: 100%;
+  }
+  .efficiency-wrapper {
+    height: 100%;
+    .efficiency-content {
+      @include center-block;
+      text-align: center;
+    }
+    .characteristics {
+      position: static;
+    }
+  }
+
+  .pricing-options {
+    @include padding($left: 20px, $right: 20px);
+  }
+
+  .features {
+    @include padding($left: 70px, $right: 70px);
+  }
+}
+
+@media screen and (max-width: $md) {
+  .features {
+    .description {
+      @include padding($top: 15px, $bottom: 15px);
+    }
+  }
+  .pricing-options div {
+    &:nth-of-type(1) {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: $sm) {}
+
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+screen and (min--moz-device-pixel-ratio: 2),
+screen and (-o-min-device-pixel-ratio: 2/1),
+screen and (min-device-pixel-ratio: 2),
+screen and (min-resolution: 192dpi),
+screen and (min-resolution: 2dppx) {
+  .hero {
+    background-image: 
+      linear-gradient(to bottom, #071a2e, rgba(24, 79, 136, 0.3)),
+      url($image-path + 'hero@2x.png');
+  }
+
+  .efficiency-wrapper {
+    background-image: 
+      linear-gradient(to top, rgba(16, 55, 95, 0.55), rgba(16, 55, 95, 0.3)),
+      url($image-path + 'bg@2x.png');
+  }
+}

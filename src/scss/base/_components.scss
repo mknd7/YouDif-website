@@ -1,0 +1,337 @@
+.header {
+  @include position(fixed, $top: 0);
+  @include padding($top: 40px, $bottom: 40px);
+  @include transition(0.6s);
+  width: 100%;
+  z-index: 1;
+  .container.menu-anchor {
+    position: relative;
+    @include padding($top: 0, $bottom: 0);
+  }
+  .logo {
+    float: left;
+  }
+  .logo--white {
+    @include background-image('logo.png', $logo-width-default);
+    @include margin($top: 18px, $bottom: 18px);
+  }
+  nav {
+    float: right;
+    font-size: 0;
+    a {
+      @include inline-block;
+      @include margin(18px, get-rem(58px), 18px, 0);
+      font-size: get-rem(18px);
+      text-transform: uppercase;
+      color: $color-base;
+    }
+    a:last-of-type {
+      margin: 0;
+    }
+  }
+  .menuicon {
+    @include margin($top: 16px, $bottom: 16px);
+    @include size(24px);
+    cursor: pointer;
+    display: none;
+    float: right;
+    .bar {
+      @include size(100%, 3px);
+      @include transition(0.4s);
+      display: block;
+      background-color: $color-base;
+    }
+    .bar-one {
+        margin-top: 4px;
+    }
+    .bar-two {
+        margin: 4px 0;
+    }
+  }
+
+  .change {
+    .bar-one {
+      margin-top: 5px;
+      @include transform(rotate(45deg) translate(5px, 5px));
+    }
+    .bar-two {
+      opacity: 0;
+    }
+    .bar-three {
+      @include transform(rotate(-45deg) translate(5px, -5px));
+    }
+  }
+}
+
+.change.header {
+  @include padding($top: 10px, $bottom: 10px);
+  background-color: rgba($color--primary, 0.95);
+}
+
+.description {
+  display: block;
+  color: $color-text;
+  line-height: $line-height--text;
+}
+
+.description-heading {
+  display: block;
+  font-size: get-rem(28px);
+  color: $color-text--dark;
+  margin-bottom: 10px;
+}
+
+.button {
+  @include border-radius(4px);
+  @include transition(0.4s);
+  @include padding($top: 20px, $bottom: 20px);
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 0.91rem;
+  &--blue {
+    background-color: $color--primary;
+    &:hover {
+      @include box-shadow(0 0 20px 0 $color--primary);
+    }
+  }
+  &--yellow {
+    background-color: $color--secondary;  
+    &:hover {
+      @include box-shadow(0 0 20px 0 $color--secondary);
+    }
+  }
+}
+
+.char-card {
+  @include border-radius(4px);
+  @include box-shadow(0 0 60px 10px rgba(13, 37, 62, 0.1));
+  padding: 55px 60px;
+  max-width: 660px;
+  margin-bottom: 20px;
+  background-color: $color-base;
+  .description {
+    line-height: 1.45;
+    .description-heading {
+      margin-bottom: 20px;
+    }
+  }
+  &:first-of-type {
+    margin-top: -45px;
+  }
+}
+
+.pricing-options div {
+  &:nth-of-type(1) .pricing-card-title {
+    background-color: $color--primary;
+  }
+  &:nth-of-type(2) .pricing-card-title {
+    background-color: $color--secondary;
+  }
+}
+
+.pricing-card {
+  @include border-radius(4px);
+  @include inline-block(top);
+  @include transition(0.4s);
+  width: 510px;
+  border: 1px solid $color-border;
+  font-size: 1rem;
+  text-align: center;
+  &:hover {
+    @include box-shadow(0 20px 60px 10px rgba(13, 37, 62, 0.05));
+  }
+  // &:nth-of-type(1) .pricing-card-title {
+  //   background-color: $color--primary;
+  // }
+  // &:nth-of-type(2) .pricing-card-title {
+  //   background-color: $color--secondary;
+  // }
+  .pricing-card-title {
+    @include padding($top: 56px, $bottom: 28px);
+    color: $color-base;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    .optiontitle {
+      display: block;
+      text-transform: uppercase;
+      font-size: get-rem(28px);
+      letter-spacing: 6px;
+      margin-bottom: 8px;
+    }
+    .optionprice {
+      display: block;
+      margin-bottom: 25px;
+      font-weight: $font-weight--bold;
+      .price {
+        @include inline-block;
+        font-size: get-rem(60px);
+      }
+      .taxes {
+        font-size: get-rem(20px);
+      }
+    }
+    .optiondetails {
+      font-size: get-rem(18px);
+      font-weight: $font-weight--light;
+    }
+  }
+  .pricing-features {
+    padding: 60px;
+    color: rgba($color-text--dark, 0.9);
+    .pricing-details {
+      display: block;
+      text-align: left;
+      margin-bottom: 30px;
+      .detail-note {
+        display: block;
+        max-width: 100%;
+        font-size: get-rem(18px);
+        line-height: 1.67;
+      }
+      span:last-of-type:not(.detail-note) {
+        @include inline-block(top);
+        max-width: calc(100% - 55px);
+      }
+    }
+    .selection-offer {
+      @include padding($left: 34px, $right: 34px);
+    }
+    .global-offer {
+      @include padding($left: 51px, $right: 51px);
+    }
+  }
+}
+
+.footer {
+  @include padding($top: 75px, $bottom: 55px);
+  .container {
+    @include padding($top: 0, $bottom: 0);
+  }
+  .logo {
+    float: left;
+  }
+  .logo--grey {
+    @include background-image('logo-grey.png', $logo-width-default);
+    @include margin($top: 24px, $bottom: 24px);
+  }
+  nav {
+    float: right;
+    font-size: 0;
+    ul {
+      @include inline-block(top);
+      min-width: 280px;
+      li {
+        display: block;
+        text-align: left;
+        width: initial;
+        margin-bottom: 18px;
+        a {
+          font-weight: $font-weight--bold;
+          color: rgba($color-text--dark, 0.25);
+          text-transform: uppercase;
+        }
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+      &:last-of-type {
+        min-width: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $xl) {
+  .pricing-card {
+    width: initial;
+    max-width: 49%;
+  }
+
+  .char-card {
+    max-width: 500px;
+    padding: 40px 45px;
+  }
+
+  .footer {
+    nav {
+      ul {
+        min-width: 140px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $lg) {
+  .char-card {
+    @include center-block;
+    padding: 30px 25px;
+    &:first-of-type {
+      margin-top: 40px;
+    }
+  }
+}
+
+@media screen and (max-width: $md) {
+  .header {
+    @include padding($top: 10px, $bottom: 10px);
+    background-color: rgba($color--primary, 0.95);
+    .menuicon {
+      display: block;
+    }
+    nav {
+      @include position(absolute, $top: 66px, $right: 0);
+      display: none;
+      background-color: $color-base;
+      border-bottom: 2px solid $color-border;
+      width: 100%;
+      text-align: center;
+      float: none;
+      a {
+        display: block;
+        width: 100%;
+        padding: 30px 0;
+        margin: 0;
+        color: $color-text--dark;
+        font-weight: $font-weight--bold;
+        &:hover {
+          background-color: $color-border;
+        }
+      }
+    }
+  }
+
+  .pricing-card {
+    @include center-block;
+    display: block;
+    max-width: 90%;
+  }
+
+  .footer {
+    .logo {
+      @include center-block;
+      float: none;
+      display: block;
+      margin-bottom: 50px;
+    }
+    nav {
+      @include center-block;
+      float: none;
+      ul {
+        min-width: 50%;
+        margin-bottom: 20px;
+        &:last-of-type {
+          min-width: 50%;
+        }
+      }
+      ul li {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $sm) {
+  .pricing-card {
+    max-width: 100%;
+  }
+}
