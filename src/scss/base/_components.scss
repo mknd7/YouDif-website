@@ -64,6 +64,7 @@
 }
 
 .change.header {
+  @include box-shadow(0 0.5px 10px);
   @include padding($top: 10px, $bottom: 10px);
   background-color: rgba($color--primary, 0.95);
 }
@@ -273,16 +274,18 @@
 
 @media screen and (max-width: $md) {
   .header {
+    @include box-shadow(0 0.5px 10px);
     @include padding($top: 10px, $bottom: 10px);
-    background-color: rgba($color--primary, 0.95);
+    background-color: rgba($color--primary, 0.98); 
     .menuicon {
       display: block;
     }
     nav {
       @include position(absolute, $top: 66px, $right: 0);
+      @include box-shadow(0 1px 10px -5px);
       display: none;
       background-color: $color-base;
-      border-bottom: 2px solid $color-border;
+      border-bottom: 1px solid $color-border;
       width: 100%;
       text-align: center;
       float: none;
